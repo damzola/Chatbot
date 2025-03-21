@@ -31,10 +31,11 @@
     <script>
         var botmanWidget = {
             chatServer: '/botman',
-            title: 'Chatbot',
-            introMessage: "👋 Hi! How can I help you?",
+            title: 'Rest Assistance',
+            introMessage: "Start conversation by saying Hi or Hey or Hello",
             mainColor: 'skyblue',
             bubbleBackground: 'green',
+            background: "gray",
             aboutText: 'Powered by Techfalco',
             placeholderText: 'Type your message here...',
         };

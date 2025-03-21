@@ -10,7 +10,7 @@ class BotmanController extends Controller
 {
     public function handle(Request $request){
 
-        $botman = app('botman');
+        $botman = resolve('botman');
 
         $botman->hears('hello|hi|hey', function (Botman $bot){
             $bot->reply('hi there, how can we help you today?');
@@ -22,7 +22,26 @@ class BotmanController extends Controller
 
 });
 
+    $botman->hears('I want to know the weather condiction in {location}', function ($bot, $location){
+        $bot->reply('You can frame your questions like this : ');
+        $bot->reply('what is the weather condiction in '. $location. ', or');
+        $bot->reply('weather in '. $location. ', or');
+        $bot->reply('what is the weather in '. $location);
+    });
 
+    $botman->hears('so then what is the weather in {location}', function ($bot, $location){
+        $bot->reply('You can frame your questions like this : ');
+        $bot->reply('what is the weather condiction in '. $location. ', or');
+        $bot->reply('weather in '. $location. ', or');
+        $bot->reply('what is the weather in '. $location);
+    });
+
+    $botman->hears('Tell me what the weather look like in {location}', function ($bot, $location){
+        $bot->reply('You can frame your questions like this : ');
+        $bot->reply('what is the weather condiction in '. $location. ', or');
+        $bot->reply('weather in '. $location. ', or');
+        $bot->reply('what is the weather in '. $location);
+    });
     $botman->listen();
 
 
