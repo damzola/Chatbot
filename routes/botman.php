@@ -55,3 +55,9 @@ $botman->hears('what is the weather in {location}', function ($bot, $location){
     $bot->reply('Temp is: '. $res->current->temperature . ' degree celsius');
     $bot->reply('Humidity is: '. $res->current->humidity. ' ');
 });
+
+$botman->hears("information", function ($bot){
+    $user = $bot->getUser();
+
+    $bot->reply('Name: '. $user->getFirstName());
+});

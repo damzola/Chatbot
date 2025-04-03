@@ -14,11 +14,27 @@ class BotmanController extends Controller
 
         $botman->hears('hello|hi|hey', function (Botman $bot){
             $bot->reply('hi there, how can we help you today?');
+            $bot->reply('What is your name?');
 
     });
+    $botman->hears("my name is {name}", function ($bot, $name){
+        $bot->userStorage()->save([
+            'name' => $name
+        ]);
+        $bot->reply("Hey welcome ". $name . ", how can i help you today?");
+    });
+
+
+    $botman->hears('what is my name', function ($bot){
+
+        $name = $bot->userStorage()->get('name');
+        
+        $bot->reply('Your name is: '.$name);
+
+});
 
     $botman->hears('Tell me about your service(.*)', function (Botman $bot){
-        $bot->reply('Good Questions: We offer XYZ services');
+        $bot->reply('Good Questions: am a weather finding assistance, ask me a weather condiction of a particular location');
 
 });
 
